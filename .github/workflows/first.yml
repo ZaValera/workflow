@@ -5,10 +5,7 @@ on:
     branches:
       - dev
 
-  workflow_run:
-    workflows: ["Second Workflow"]
-    types:
-      - completed
+  workflow_call:
 
 jobs:
   build:
@@ -20,5 +17,8 @@ jobs:
         with:
           ref: "dev"
 
-      - name: Build
+      - name: Show hash
         run: git rev-parse HEAD
+
+      - name: Show files
+        run: ls

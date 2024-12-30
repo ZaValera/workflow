@@ -27,3 +27,8 @@ jobs:
           git commit -m "New file" --no-verify
           git push
 
+  deploy:
+    needs: sync
+    uses: ./.github/workflows/first.yml
+    secrets: inherit
+
