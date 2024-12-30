@@ -1,6 +1,14 @@
 name: First Workflow
 
-on: [push]
+on:
+  push:
+    branches:
+      - dev
+
+  workflow_run:
+    workflows: ["Second Workflow"]
+    types:
+      - completed
 
 jobs:
   build:
